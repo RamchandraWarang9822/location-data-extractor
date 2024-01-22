@@ -39,6 +39,12 @@ function App() {
 
   return (
     <Container maxWidth="md">
+      {/* Header */}
+      <header>
+        <h1>Location Data Extractor</h1>
+        <p>Location Data Extractor is a user-friendly web application that simplifies the search for places of interest using the Google Maps API. Discover nearby locations effortlessly, explore their details, and enjoy convenient navigation with a clean and responsive interface</p>
+      </header>
+
       <div style={{ opacity: loading ? 0.5 : 1, transition: 'opacity 0.3s ease-in-out' }}>
         <TextField
           label="Location"
@@ -99,6 +105,15 @@ function App() {
           </Card>
         ))}
       </div>
+
+      {/* Footer */}
+      <footer>
+        <p>Made By <b>Ramchandra Warang</b></p>
+        <p>Skills and Technologies Used:<b> React.Js, Python, FastAPI, Docker, Material-UI, Axios, Google Maps API</b></p>
+        <Link href="https://github.com/RamchandraWarang9822/location-data-extractor" target="_blank" rel="noopener noreferrer">
+          GitHub Repository
+        </Link>
+      </footer>
     </Container>
   );
 }
