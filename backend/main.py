@@ -31,20 +31,17 @@ class PlaceDetails(BaseModel):
     url: str
 
 @app.get("/api", response_model=List[PlaceDetails])
-def scrape_places():
+def scrape_places(location: str, keyword: str):
     try:
-        area_name = 'Pimpri'
-        place_keyword = 'diagnostic center'
-        radius_in_km = 10
-
-        geocode_result = gmaps.geocode(area_name)
+        geocode_result = gmaps.geocode(location)
         location = geocode_result[0]['geometry']['location']
 
         places_result = gmaps.places_nearby(
             location=location,
-            radius=radius_in_km * 1000,
-            keyword=place_keyword,
+            radius=10 * 1000,
+            keyword=keyword,
         )
+
         all_place_details = []
 
         all_place_details.extend([
@@ -57,18 +54,15 @@ def scrape_places():
             for place in places_result.get('results', [])
         ])
 
-        # Check if there are more pages and retrieve them
         while 'next_page_token' in places_result:
             next_page_token = places_result['next_page_token']
 
-            # Pause for a short time to allow the next page to be generated
             time.sleep(2)
 
-            # Make a request with the page token to get the next page of results
             places_result = gmaps.places_nearby(
                 location=location,
-                radius=radius_in_km * 1000,
-                keyword=place_keyword,
+                radius=10 * 1000,
+                keyword=keyword,
                 page_token=next_page_token
             )
 
