@@ -37,14 +37,23 @@ function App() {
     window.open(url, '_blank');
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSearch();
+  };
+
   return (
     <Container maxWidth="md">
       {/* Header */}
       <header>
-        <h1>Location Data Extractor</h1>
+        <div>
+          <img src="map_favicon.png" alt="" />
+          <h1>Location Data Extractor</h1>
+        </div>
         <p>Location Data Extractor is a user-friendly web application that simplifies the search for places of interest using the Google Maps API. Discover nearby locations effortlessly, explore their details, and enjoy convenient navigation with a clean and responsive interface</p>
       </header>
 
+ <form onSubmit={handleSubmit}>
       <div style={{ opacity: loading ? 0.5 : 1, transition: 'opacity 0.3s ease-in-out' }}>
         <TextField
           label="Location"
@@ -61,7 +70,7 @@ function App() {
           margin="normal"
         />
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-          <Button variant="contained" onClick={handleSearch} disabled={loading}>
+            <Button type="submit" variant="contained" disabled={loading}>
             Search
           </Button>
         </div>
@@ -105,6 +114,7 @@ function App() {
           </Card>
         ))}
       </div>
+      </form>
 
       {/* Footer */}
       <footer>

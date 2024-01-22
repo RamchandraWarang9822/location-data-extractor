@@ -1,6 +1,6 @@
 # Location Data Extractor
 
-Concise project overview.
+Location Data Extractor is a user-friendly web application that simplifies the search for places of interest using the Google Maps API. Discover nearby locations effortlessly, explore their details, and enjoy convenient navigation with a clean and responsive interfaceConcise project overview.
 
 ## Setup Locally with Docker
 
@@ -13,8 +13,8 @@ Ensure Docker is installed on your machine.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/RamchandraWarang9822/location-data-extractor
+cd location-data-extractor
 ```
 
 ### 2. Build Docker Images
