@@ -18,7 +18,17 @@ git clone https://github.com/RamchandraWarang9822/location-data-extractor
 cd location-data-extractor
 ```
 
-### 2. Build and Run with Docker Compose
+### 2. Create a .env file
+
+Create a .env file in the root project folder and add your Google Places API key:
+
+```bash
+echo "API_KEY=your_google_places_api_key" > .env
+```
+
+Replace `your_google_places_api_key` with your actual Google Places API key.
+
+### 3. Build and Run with Docker Compose
 
 ```bash
 docker-compose up -d
@@ -26,13 +36,13 @@ docker-compose up -d
 
 This command will build and start the frontend and backend services in detached mode.
 
-### 3. Access the Application
+### 4. Access the Application
 
 The frontend will be available at [http://localhost:5173](http://localhost:5173).
 
 The backend will be available at [http://localhost:8000](http://localhost:8000).
 
-### 4. Cleanup
+### 5. Cleanup
 
 To stop and remove the running containers:
 
@@ -45,4 +55,4 @@ docker-compose down
 - Include any additional notes or instructions here.
 ```
 
-With these changes, the README.md file now emphasizes the use of Docker Compose for building and running the application. The cleanup section has also been updated to use `docker-compose down`. Feel free to adjust the content based on your preferences and specific instructions.
+This section now includes instructions for creating a .env file in the root project folder and adding the Google Places API key. Make sure to replace "your_google_places_api_key" with your actual API key in the .env file.
