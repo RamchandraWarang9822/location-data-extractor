@@ -1,19 +1,30 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
-  const [people, setPeople] = useState([]);
+  const [places, setPlaces] = useState([]);
 
   useEffect(() => {
-    axios.get("/api").then(res => setPeople(res.data));
+    axios.get("/api").then(res => setPlaces(res.data));
   }, []);
 
-  return people.map((p, index) => {
-    return (
-      <p key={index}>{p.id} <b>{p.name}</b> {p.age}</p>
-    )
-  })
+
+  return (
+    <div className="App">
+
+      <div>
+        {places.map((place, index) => (
+          <div key={index}>
+            <p><b>Name:</b> {place.name}</p>
+            <p><b>Address:</b> {place.address}</p>
+            <p><b>Phone Number:</b> {place.phone_number}</p>
+            <p><b>URL:</b> {place.url}</p>
+            <hr />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
